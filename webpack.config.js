@@ -2,12 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './src/app.js',
+	entry: './client/src/index.jsx',
 
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
-	},
 	watch: true,
 	devServer: {
 		inline: true
@@ -16,8 +12,9 @@ module.exports = {
 	module: {
 		rules: [
       {
-        test: /\.html$/,
-        loader: "html-loader"
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
 			{
 				test: /\.(scss)$/,
@@ -37,5 +34,20 @@ module.exports = {
 				}]
 			}
 		]
-	}
+	},
+	resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+  output: {
+    path: `${__dirname}/client/public`,
+    publicPath: '/',
+    filename: 'bundle.js',
+	},
+	plugins: [
+    // new webpack.HotModuleReplacementPlugin(),
+  ],
+  devServer: {
+    contentBase: './public',
+    // hot: true,
+  },
 }
