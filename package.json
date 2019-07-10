@@ -21,12 +21,13 @@
   "homepage": "https://github.com/roostergrin/front-end-dev-test",
   "dependencies": {
     "axios": "^0.19.0",
-    "express": "^4.17.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
     "jquery": "^3.3.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",
