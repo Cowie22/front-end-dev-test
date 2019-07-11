@@ -1,17 +1,23 @@
 import React from 'react';
 import '../Styles/Styles.scss'
 import  { MdArrowDropUp, MdArrowDropDown } from 'react-icons/lib/md';
+import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       hovered: false,
+      viewable: false,
     }
     this.handleButtonHover = this.handleButtonHover.bind(this);
     this.handleButtonLeave = this.handleButtonLeave.bind(this);
+    this.handleViewable = this.handleViewable.bind(this);
   }
-
+  componentDidMount() {
+    this.handleViewable()
+  }
   // The following two function control the up and down arrow for the home page button
   handleButtonHover() {
     this.setState({
@@ -25,36 +31,61 @@ class HomePage extends React.Component {
     })
   }
 
+  handleViewable() {
+    this.setState({
+      viewable: true,
+    })
+  }
   render() {
     const arrowUpIcon =
       <MdArrowDropUp
         name="arrow_drop_up"
         size={40}
         color="white"
+        transition={'0.3s ease-in'}
       />
-
     const arrowDownIcon =
       <MdArrowDropDown
         name="arrow_drop_down"
         size={40}
-        color="black"
+        color="	#E6873F"
       />
 
     const { handleNavigationClicks, aboutRef } = this.props;
+    const { hovered, viewable } = this.state;
     return (
       <div className="Home-Page-Container">
         <div className="Home-Info-Container">
+        <Slide
+          left
+          when={viewable}
+          duration={1800}
+        >
           <h1 className="Welcome">WELCOME TO</h1>
+        </Slide>
+        <Slide
+          right
+          when={viewable}
+          duration={1800}
+        >
           <h2 className="Company-Name">Rooster Grin</h2>
+        </Slide>
         </div>
-        <div className="Home-Button-Container">
-          <button className="Home-Button"
-            onClick={() => handleNavigationClicks(aboutRef)}
-            onMouseEnter={this.handleButtonHover}
-            onMouseLeave={this.handleButtonLeave}
-          >
-          Learn About Us {'  '}{this.state.hovered ? arrowDownIcon : arrowUpIcon}</button>
-        </div>
+        <Fade
+          up
+          when={viewable}
+          duration={4000}
+          distance={'500px'}
+        >
+          <div className="Home-Button-Container">
+            <button className="Home-Button"
+              onClick={() => handleNavigationClicks(aboutRef)}
+              onMouseEnter={() => setTimeout(this.handleButtonHover, 300)}
+              onMouseLeave={() => setTimeout(this.handleButtonLeave, 300)}
+            >
+            Learn About Us {'  '}{hovered ? arrowDownIcon : arrowUpIcon}</button>
+          </div>
+        </Fade>
       </div>
     )
   }

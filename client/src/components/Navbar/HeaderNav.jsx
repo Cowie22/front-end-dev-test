@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import '../Styles/Styles.scss'
 import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.svg';
 import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
