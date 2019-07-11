@@ -1,12 +1,20 @@
 import React from 'react';
+import LearnModule from './LearnMore/LearnModule';
 import AboutImage from '../../../public/front-end-dev-test-assets/img-1.jpg';
 import  { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/lib/md';
 class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      learnDisplayed: false,
     }
+    this.handleLearnDisplay = this.handleLearnDisplay.bind(this);
+  }
+  handleLearnDisplay() {
+    this.setState({
+      learnDisplayed: !this.state.learnDisplayed,
+    });
+    console.log(this.state.learnDisplayed)
   }
   render() {
     const arrowRightIcon =
@@ -22,7 +30,7 @@ class About extends React.Component {
         size={40}
         color="	#E6873F"
       />
-    const { hovered, handleHover, handleLeave, handleLearnDisplay } = this.props;
+    const { hovered, handleHover, handleLeave } = this.props;
     return (
       <div>
         <div className="About-Container">
@@ -34,7 +42,7 @@ class About extends React.Component {
             </p>
             <button
               className="About-btn"
-              onClick={() => handleLearnDisplay()}
+              onClick={() => this.handleLearnDisplay()}
               onMouseEnter={() => setTimeout(() => handleHover(5), 300)}
               onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
@@ -44,6 +52,9 @@ class About extends React.Component {
           <div className="About-Image-Container">
             <img src={AboutImage} className="About-Image" />
           </div>
+          <LearnModule
+            show={this.state.learnDisplayed} onHide={this.handleLearnDisplay}
+          />
         </div>
         <div className="About-Banner-Container">
           <div className="About-Banner-Info-Container">

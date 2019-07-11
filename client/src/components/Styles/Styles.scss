@@ -182,7 +182,7 @@ body {
 // Learn More Skills
 
 .modal-content {
-  width: 680px;
+  width: 800px;
   position: absolute;
   left: -18%;
   background-color: black;
@@ -202,13 +202,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 20px;
+  align-content: flex-start;
 }
 
 code {
-  color: skyblue;
+  color: #E6873F;
   margin-right: 28px;
   margin-left: -4px;
+  text-align: start;
 }
 
 .Modal-Button {
