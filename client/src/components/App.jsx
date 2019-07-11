@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderNav from './Navbar/HeaderNav';
 import HomePage from './Home/HomePage';
 import About from './About/About';
+import LearnModule from './LearnMore/LearnModule';
 import './Styles/Styles.scss'
 
 
@@ -11,9 +12,11 @@ class App extends React.Component {
     this.state = {
       pagePosition: 0,
       hovered: 0,
+      learnDisplayed: 0,
     }
     this.handleNavigationClicks = this.handleNavigationClicks.bind(this);
     this.handlePagePosition = this.handlePagePosition.bind(this);
+    this.handleLearnDisplay = this.handleLearnDisplay.bind(this);
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.homePageRef = React.createRef();
@@ -52,6 +55,13 @@ class App extends React.Component {
     ref.current.scrollIntoView({behavior: 'smooth'})
   }
 
+  handleLearnDisplay() {
+    this.setState({
+      learnDisplayed: 100,
+    });
+    console.log(this.state.learnDisplayed)
+  }
+
   render() {
     const { pagePosition, hovered } = this.state;
     // Props passed to all App children
@@ -79,8 +89,22 @@ class App extends React.Component {
         <div ref={this.aboutRef}>
           <About
             {...sharedProps}
+            handleLearnDisplay={this.handleLearnDisplay}
           />
         </div>
+        {this.state.learnDisplayed === 0 ?
+        <div>
+          <LearnModule
+            handleLearnDisplay={this.handleLearnDisplay}
+            learnDisplayed={this.state.learnDisplayed}
+          />
+
+        </div>
+        :
+        <div>
+
+        </div>
+      }
       </div>
     )
   }

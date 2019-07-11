@@ -22,8 +22,7 @@ class About extends React.Component {
         size={40}
         color="	#E6873F"
       />
-    const { hovered, handleHover, handleLeave } = this.props;
-    // const hoveredAboutBtn = handleHover(5);
+    const { hovered, handleHover, handleLeave, handleLearnDisplay } = this.props;
     return (
       <div>
         <div className="About-Container">
@@ -35,6 +34,7 @@ class About extends React.Component {
             </p>
             <button
               className="About-btn"
+              onClick={() => handleLearnDisplay()}
               onMouseEnter={() => setTimeout(() => handleHover(5), 300)}
               onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
