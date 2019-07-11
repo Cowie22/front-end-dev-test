@@ -7,9 +7,12 @@ import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-whit
 
 
 const HeaderNav = (props) => {
+  const { pagePosition } = props;
   return (
+    // Background color is changed for header nav because it looks better without the background on initial page load
+    // But portions can't be seen on the white background below
     <div>
-      <Navbar className="navbar fixed-top">
+      <Navbar className="navbar fixed-top" style={{background: pagePosition > 700 ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.0)'}}>
         <Navbar.Brand
           // onClick={() => this.props.handleScroll(this.props.homeRef)}
         >

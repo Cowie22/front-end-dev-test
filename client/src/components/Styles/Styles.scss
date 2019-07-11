@@ -2,7 +2,7 @@
 
 $font-stack: Helvetica, sans-serif;
 
-.body {
+body {
   font: 100% $font-stack;
 }
 
@@ -10,7 +10,8 @@ $font-stack: Helvetica, sans-serif;
 
 .navbar {
   margin-top: -20px;
-  margin-bottom: -40px;
+  margin-bottom: -80px;
+  height: 100px;
   .fixed-top {
     .navbar {
       .navbar-expand {
@@ -54,6 +55,7 @@ $font-stack: Helvetica, sans-serif;
 .navbar-light {
   .navbar-nav {
     .nav-link {
+      margin-top: 10px;
       .icons {
         width: 46px;
         height: 46px;
@@ -108,5 +110,47 @@ $font-stack: Helvetica, sans-serif;
         transition: 0.5s ease-in;
       }
     }
+  }
+}
+
+// About Us Styles
+
+.About-Container {
+  display: flex;
+  flex-direction: row;
+  .About-Info-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .About-Title {
+      color: #E6873F;
+      font-size: 28px;
+    };
+    .About-Sub-Title {
+      color: #E6873F;
+      font-size: 22px;
+    };
+    .About-Info {
+      color: black;
+      font-size: 14px;
+    };
+    .About-btn {
+
+    }
+  };
+  .About-Image-Container {
+    .About-Image {
+
+    };
+  };
+}
+
+.About-Banner-Container {
+  background-image: url('../../../public/front-end-dev-test-assets/banner-1.jpg');
+  width: 100%;
+  height: 600px;
+  .About-Banner-Info-Container {
+
   }
 }
