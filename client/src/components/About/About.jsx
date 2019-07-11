@@ -5,21 +5,8 @@ class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hovered: false,
-    }
-    this.handleAboutBtnHover = this.handleAboutBtnHover.bind(this);
-    this.handleAboutBtnLeave = this.handleAboutBtnLeave.bind(this);
-  }
-  handleAboutBtnHover() {
-    this.setState({
-      hovered: true,
-    })
-  }
 
-  handleAboutBtnLeave() {
-    this.setState({
-      hovered: false,
-    })
+    }
   }
   render() {
     const arrowRightIcon =
@@ -35,7 +22,8 @@ class About extends React.Component {
         size={40}
         color="	#E6873F"
       />
-    const { hovered } = this.state;
+    const { hovered, handleHover, handleLeave } = this.props;
+    // const hoveredAboutBtn = handleHover(5);
     return (
       <div>
         <div className="About-Container">
@@ -47,10 +35,10 @@ class About extends React.Component {
             </p>
             <button
               className="About-btn"
-              onMouseEnter={() => setTimeout(this.handleAboutBtnHover, 300)}
-              onMouseLeave={() => setTimeout(this.handleAboutBtnLeave, 300)}
+              onMouseEnter={() => setTimeout(() => handleHover(5), 300)}
+              onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
-            {hovered ? arrowDownIcon : arrowRightIcon } {'  '} Learn More
+            {hovered === 5 ? arrowDownIcon : arrowRightIcon } {'  '} Learn More
             </button>
           </div>
           <div className="About-Image-Container">

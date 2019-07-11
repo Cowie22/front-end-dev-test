@@ -4,17 +4,18 @@ import '../Styles/Styles.scss'
 import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.svg';
 import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
 import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-white.svg';
+import HeadShake from 'react-reveal/HeadShake';
 
 
 const HeaderNav = (props) => {
-  const { pagePosition } = props;
+  const { pagePosition, handleNavigationClicks, homeRef, aboutRef, hovered, handleHover, handleLeave } = props;
   return (
     // Background color is changed for header nav because it looks better without the background on initial page load
     // But portions can't be seen on the white background below
     <div>
       <Navbar className="navbar fixed-top" style={{background: pagePosition > 700 ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.0)'}}>
         <Navbar.Brand
-          // onClick={() => this.props.handleScroll(this.props.homeRef)}
+          onClick={() => handleNavigationClicks(homeRef)}
         >
         <RoosterGrinLogo width={300} height={100} />
         </Navbar.Brand>
@@ -22,24 +23,54 @@ const HeaderNav = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link
-              // onClick={() => this.props.handleScroll(this.props.homeRef)}
+              onClick={() => handleNavigationClicks(homeRef)}
             >
             Home
             </Nav.Link>
-            <Nav.Link>About Us</Nav.Link>
+            <Nav.Link onClick={() => handleNavigationClicks(aboutRef)}>About Us</Nav.Link>
             <Nav.Link>Appointments</Nav.Link>
             <Nav.Link>Contact</Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="https://www.instagram.com/" target="_blank">
-              <InstagramLogo width={50} height={50} />
-            </Nav.Link>
-            <Nav.Link href="https://www.facebook.com" target="_blank">
-            <FacebookLogo width={50} height={50} />
-            </Nav.Link>
-            <Nav.Link href="mailto:rjcowie1@gmail.com" target="_blank">
-              <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Mail02-RoundedWhite-512.png" className="icons"/>
-            </Nav.Link>
+            <HeadShake
+              duration={2000}
+              when={hovered === 1}
+            >
+              <Nav.Link
+                href="https://www.instagram.com/" target="_blank"
+                onMouseEnter={() => handleHover(1)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 1 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+                >
+                <InstagramLogo width={50} height={50} />
+              </Nav.Link>
+            </HeadShake>
+            <HeadShake
+              duration={2000}
+              when={hovered === 2}
+            >
+              <Nav.Link
+                href="https://www.facebook.com" target="_blank"
+                onMouseEnter={() => handleHover(2)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 2 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+              >
+              <FacebookLogo width={50} height={50} />
+              </Nav.Link>
+            </HeadShake>
+            <HeadShake
+              duration={2000}
+              when={hovered === 3}
+            >
+              <Nav.Link
+                href="mailto:rjcowie1@gmail.com" target="_blank"
+                onMouseEnter={() => handleHover(3)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 3 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+              >
+                <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Mail02-RoundedWhite-512.png" className="icons"/>
+              </Nav.Link>
+            </HeadShake>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

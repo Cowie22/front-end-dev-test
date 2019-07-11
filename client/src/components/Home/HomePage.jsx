@@ -8,27 +8,13 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hovered: false,
       viewable: false,
     }
-    this.handleButtonHover = this.handleButtonHover.bind(this);
-    this.handleButtonLeave = this.handleButtonLeave.bind(this);
     this.handleViewable = this.handleViewable.bind(this);
   }
+
   componentDidMount() {
     this.handleViewable()
-  }
-  // The following two function control the up and down arrow for the home page button
-  handleButtonHover() {
-    this.setState({
-      hovered: true,
-    })
-  }
-
-  handleButtonLeave() {
-    this.setState({
-      hovered: false,
-    })
   }
 
   handleViewable() {
@@ -51,8 +37,8 @@ class HomePage extends React.Component {
         color="	#E6873F"
       />
 
-    const { handleNavigationClicks, aboutRef } = this.props;
-    const { hovered, viewable } = this.state;
+    const { handleNavigationClicks, aboutRef, hovered, handleHover, handleLeave } = this.props;
+    const { viewable } = this.state;
     return (
       <div className="Home-Page-Container">
         <div className="Home-Info-Container">
@@ -80,10 +66,10 @@ class HomePage extends React.Component {
           <div className="Home-Button-Container">
             <button className="Home-Button"
               onClick={() => handleNavigationClicks(aboutRef)}
-              onMouseEnter={() => setTimeout(this.handleButtonHover, 300)}
-              onMouseLeave={() => setTimeout(this.handleButtonLeave, 300)}
+              onMouseEnter={() => setTimeout(() => handleHover(4), 300)}
+              onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
-            Learn About Us {'  '}{hovered ? arrowDownIcon : arrowUpIcon}</button>
+            Learn About Us {'  '}{hovered === 4 ? arrowDownIcon : arrowUpIcon}</button>
           </div>
         </Fade>
       </div>

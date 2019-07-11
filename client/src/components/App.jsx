@@ -10,11 +10,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       pagePosition: 0,
+      hovered: 0,
     }
     this.handleNavigationClicks = this.handleNavigationClicks.bind(this);
     this.handlePagePosition = this.handlePagePosition.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
     this.homePageRef = React.createRef();
-    this.aboutMeRef = React.createRef();
+    this.aboutRef = React.createRef();
   }
 
   componentDidMount() {
@@ -23,6 +26,20 @@ class App extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handlePagePosition);
+  }
+
+  // Following two functions handle the hovered cases for any icons/buttons so that a boolean
+  // Can be set up.  And if the boolean condition is met, an animation will occur
+  handleHover(id) {
+    this.setState({
+      hovered: id,
+    })
+  }
+
+  handleLeave() {
+    this.setState({
+      hovered: 0,
+    })
   }
 
   handlePagePosition() {
@@ -36,23 +53,33 @@ class App extends React.Component {
   }
 
   render() {
-    const { pagePosition } = this.state
-    console.log(this.state.pagePosition)
+    const { pagePosition, hovered } = this.state;
+    // Props passed to all App children
+    const sharedProps = {
+      handleNavigationClicks: this.handleNavigationClicks,
+      hovered: hovered,
+      pagePosition: pagePosition,
+      handleScroll: this.handlePagePosition,
+      handleHover: this.handleHover,
+      handleLeave: this.handleLeave,
+    }
     return (
       <div>
         <div ref={this.homePageRef}>
           <HeaderNav
-            handleScroll={this.handleScroll}
             homeRef={this.homePageRef}
-            pagePosition={pagePosition}
+            aboutRef={this.aboutRef}
+            {...sharedProps}
           />
           <HomePage
-            handleNavigationClicks={this.handleNavigationClicks}
-            aboutRef={this.aboutMeRef}
+            aboutRef={this.aboutRef}
+            {...sharedProps}
           />
         </div>
-        <div ref={this.aboutMeRef}>
-          <About />
+        <div ref={this.aboutRef}>
+          <About
+            {...sharedProps}
+          />
         </div>
       </div>
     )
