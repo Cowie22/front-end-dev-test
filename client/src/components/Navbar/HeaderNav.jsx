@@ -1,6 +1,10 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import './NavbarStyles/HeaderNav.scss';
+import '../Styles/Styles.scss'
+import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.svg';
+import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
+import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-white.svg';
+
 
 const HeaderNav = (props) => {
   return (
@@ -9,7 +13,7 @@ const HeaderNav = (props) => {
         <Navbar.Brand
           // onClick={() => this.props.handleScroll(this.props.homeRef)}
         >
-        Rooster Grin
+        <RoosterGrinLogo width={300} height={100} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,7 +27,17 @@ const HeaderNav = (props) => {
             <Nav.Link>Appointments</Nav.Link>
             <Nav.Link>Contact</Nav.Link>
           </Nav>
-          
+          <Nav className="ml-auto">
+            <Nav.Link href="https://www.instagram.com/" target="_blank">
+              <InstagramLogo width={50} height={50} />
+            </Nav.Link>
+            <Nav.Link href="https://www.facebook.com" target="_blank">
+            <FacebookLogo width={50} height={50} />
+            </Nav.Link>
+            <Nav.Link href="mailto:rjcowie1@gmail.com" target="_blank">
+              <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Mail02-RoundedWhite-512.png" className="icons"/>
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>

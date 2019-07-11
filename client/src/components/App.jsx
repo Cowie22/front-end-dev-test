@@ -1,5 +1,7 @@
 import React from 'react';
 import HeaderNav from './Navbar/HeaderNav';
+import HomePage from './Home/HomePage';
+import './Styles/Styles.scss'
 
 
 class App extends React.Component {
@@ -8,11 +10,28 @@ class App extends React.Component {
     this.state = {
 
     }
+    this.handleNavigationClicks = this.handleNavigationClicks.bind(this);
+    this.homePageRef = React.createRef();
+    this.aboutMeRef = React.createRef();
   }
+
+  handleNavigationClicks(ref) {
+    ref.current.scrollIntoView({behavior: 'smooth'})
+  }
+
   render() {
     return (
       <div>
-        <HeaderNav />
+        <div ref={this.homePageRef}>
+          <HeaderNav
+            handleScroll={this.handleScroll}
+            homeRef={this.homePageRef}
+          />
+          <HomePage
+            handleNavigationClicks={this.handleNavigationClicks}
+            aboutRef={this.aboutMeRef}
+          />
+        </div>
       </div>
     )
   }

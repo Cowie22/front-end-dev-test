@@ -15,6 +15,29 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+			},
+			{
+				test: /\.svg$/,
+				use: [
+					{
+						loader: "babel-loader"
+					},
+					{
+						loader: "react-svg-loader",
+						options: {
+							jsx: true // true outputs JSX tags
+						}
+					}
+				]
+			},
+			{
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
       },
 			{
 				test: /\.(scss)$/,
