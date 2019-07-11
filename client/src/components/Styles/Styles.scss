@@ -2,6 +2,24 @@
 
 $font-stack: Helvetica, sans-serif;
 
+%shared-navigation-btn {
+  font: 100% $font-stack;
+  color: black;
+  background: rgba(0,0,0,0);
+  border: 2px solid white;
+  border-radius: 2%;
+  font-weight: bolder;
+  font-size: 28px;
+  transition: 0.5s ease-in;
+  &:hover {
+    color: #E6873F;
+    cursor: pointer;
+    font-weight: bolder;
+    border: 2px solid black;
+    transition: 0.5s ease-in;
+  }
+}
+
 body {
   font: 100% $font-stack;
 }
@@ -97,21 +115,7 @@ body {
   .Home-Button-Container {
     margin-top: 20px;
     .Home-Button {
-      font: 100% $font-stack;
-      color: black;
-      background: rgba(0,0,0,0);
-      border: 2px solid white;
-      border-radius: 2%;
-      font-weight: bolder;
-      font-size: 28px;
-      transition: 0.5s ease-in;
-      &:hover {
-        color: #E6873F;
-        cursor: pointer;
-        font-weight: bolder;
-        border: 2px solid black;
-        transition: 0.5s ease-in;
-      }
+      @extend %shared-navigation-btn
     }
   }
 }
@@ -174,12 +178,49 @@ body {
   background-image: url('../../../public/front-end-dev-test-assets/banner-1.jpg');
   width: 100%;
   height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   .About-Banner-Info-Container {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.4);
+    .About-Banner-Title {
+      font: 100% $font-stack;
+      color: #BC6732;
+      font-weight: bolder;
+      font-size: 34px;
+    };
+    .About-Banner-Info {
+      font: 100% $font-stack;
+      color: rgb(15, 110, 148);
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .About-Banner-Btn {
+      font: 100% $font-stack;
+      font-weight: bolder;
+      font-size: 28px;
+      background: rgb(15, 110, 148);
+      color: white;
+      &:hover {
+        background: #BC6732;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  };
+  .About-Transition-Button {
+    @extend %shared-navigation-btn;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.4)
   }
 }
 
-// Learn More Skills
+// Learn More Skills Styles
 
 .modal-content {
   width: 800px;

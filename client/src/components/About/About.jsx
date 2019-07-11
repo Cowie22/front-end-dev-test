@@ -1,7 +1,10 @@
 import React from 'react';
 import LearnModule from './LearnMore/LearnModule';
 import AboutImage from '../../../public/front-end-dev-test-assets/img-1.jpg';
-import  { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/lib/md';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+import { Nav } from 'react-bootstrap';
+import  { MdArrowDropUp, MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/lib/md';
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -10,13 +13,20 @@ class About extends React.Component {
     }
     this.handleLearnDisplay = this.handleLearnDisplay.bind(this);
   }
+  // Controls when to display the modal pop-up
   handleLearnDisplay() {
     this.setState({
       learnDisplayed: !this.state.learnDisplayed,
     });
-    console.log(this.state.learnDisplayed)
   }
   render() {
+    const arrowUpIcon =
+      <MdArrowDropUp
+        name="arrow_drop_up"
+        size={40}
+        color="white"
+        transition={'0.3s ease-in'}
+      />
     const arrowRightIcon =
       <MdKeyboardArrowRight
         name="arrow_right"
@@ -30,7 +40,7 @@ class About extends React.Component {
         size={40}
         color="	#E6873F"
       />
-    const { hovered, handleHover, handleLeave } = this.props;
+    const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition } = this.props;
     return (
       <div>
         <div className="About-Container">
@@ -57,9 +67,34 @@ class About extends React.Component {
           />
         </div>
         <div className="About-Banner-Container">
-          <div className="About-Banner-Info-Container">
-
-          </div>
+          <Zoom
+            duration={2000}
+            when={pagePosition > 800}
+          >
+            <div className="About-Banner-Info-Container">
+              <h1 className="About-Banner-Title">INTERESTED ?</h1>
+              <h3 className="About-Banner-Info">Check Out Our Terms And Conditions</h3>
+              <h3 className="About-Banner-Info">And Schedule A Call</h3>
+              <Nav.Link href="https://www.roostergrin.com/terms-and-conditions/" target="_blank">
+                <button className="About-Banner-Btn">
+                HERE
+                </button>
+              </Nav.Link>
+            </div>
+          </Zoom>
+          <Fade
+            up
+            duration={2000}
+            when={pagePosition > 860}
+            distance={'400px'}
+          >
+            <button className="About-Transition-Button"
+              onClick={() => handleNavigationClicks(servicesRef)}
+              onMouseEnter={() => setTimeout(() => handleHover(6), 300)}
+              onMouseLeave={() => setTimeout(handleLeave, 300)}
+            >
+            CHECK OUT OUR SERVICES {'  '}{hovered === 6 ? arrowDownIcon : arrowUpIcon}</button>
+          </Fade>
         </div>
       </div>
     )

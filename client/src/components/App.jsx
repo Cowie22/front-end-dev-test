@@ -18,6 +18,7 @@ class App extends React.Component {
     this.handleLeave = this.handleLeave.bind(this);
     this.homePageRef = React.createRef();
     this.aboutRef = React.createRef();
+    this.servicesRef = React.createRef();
   }
 
   componentDidMount() {
@@ -47,6 +48,7 @@ class App extends React.Component {
     this.setState({
       pagePosition: window.pageYOffset
     })
+    console.log(this.state.pagePosition);
   }
 
   // Handles which part of the page to jump to for the header navigation and certain buttons
@@ -71,6 +73,7 @@ class App extends React.Component {
           <HeaderNav
             homeRef={this.homePageRef}
             aboutRef={this.aboutRef}
+            servicesRef={this.servicesRef}
             {...sharedProps}
           />
           <HomePage
@@ -81,7 +84,11 @@ class App extends React.Component {
         <div ref={this.aboutRef}>
           <About
             {...sharedProps}
+            servicesRef={this.servicesRef}
           />
+        </div>
+        <div ref={this.servicesRef}>
+
         </div>
       </div>
     )
