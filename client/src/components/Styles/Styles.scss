@@ -89,5 +89,22 @@ $font-stack: Helvetica, sans-serif;
       font-weight: bold;
       letter-spacing: 4px;
     }
+  };
+  .Home-Button-Container {
+    margin-top: 20px;
+    .Home-Button {
+      font: 100% $font-stack;
+      color: black;
+      background: rgba(0,0,0,0);
+      border: 2px solid white;
+      border-radius: 2%;
+      font-weight: bolder;
+      font-size: 28px;
+      &:hover {
+        color: 	white;
+        font-weight: bolder;
+        border: 2px solid black;
+      }
+    }
   }
 }

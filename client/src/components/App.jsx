@@ -32,6 +32,9 @@ class App extends React.Component {
             aboutRef={this.aboutMeRef}
           />
         </div>
+        <div ref={this.aboutMeRef}>
+
+        </div>
       </div>
     )
   }
