@@ -42,12 +42,14 @@ class App extends React.Component {
     })
   }
 
+  // Scroll event listener helps for conditional rendering on certain page depths
   handlePagePosition() {
     this.setState({
       pagePosition: window.pageYOffset
     })
   }
 
+  // Handles which part of the page to jump to for the header navigation and certain buttons
   handleNavigationClicks(ref) {
     ref.current.scrollIntoView({behavior: 'smooth'})
   }

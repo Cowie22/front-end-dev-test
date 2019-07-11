@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import '../Styles/Styles.scss'
+import  { MdMailOutline } from 'react-icons/lib/md';
 import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.svg';
 import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
 import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-white.svg';
@@ -8,6 +9,12 @@ import HeadShake from 'react-reveal/HeadShake';
 
 
 const HeaderNav = (props) => {
+  const MailIcon =
+    <MdMailOutline
+      name="arrow_right"
+      size={50}
+      color="black"
+  />
   const { pagePosition, handleNavigationClicks, homeRef, aboutRef, hovered, handleHover, handleLeave } = props;
   return (
     // Background color is changed for header nav because it looks better without the background on initial page load
@@ -28,7 +35,8 @@ const HeaderNav = (props) => {
             Home
             </Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(aboutRef)}>About Us</Nav.Link>
-            <Nav.Link>Appointments</Nav.Link>
+            <Nav.Link>Our Services</Nav.Link>
+            <Nav.Link>Our Work</Nav.Link>
             <Nav.Link>Contact</Nav.Link>
           </Nav>
           <Nav className="ml-auto">
@@ -63,12 +71,12 @@ const HeaderNav = (props) => {
               when={hovered === 3}
             >
               <Nav.Link
-                href="mailto:rjcowie1@gmail.com" target="_blank"
+                href="mailto:info@roostergrin.com" target="_blank"
                 onMouseEnter={() => handleHover(3)}
                 onMouseLeave={() => handleLeave()}
                 style={{background: hovered === 3 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
               >
-                <img src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Mail02-RoundedWhite-512.png" className="icons"/>
+                {MailIcon}
               </Nav.Link>
             </HeadShake>
           </Nav>
