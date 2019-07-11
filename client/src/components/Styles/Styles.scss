@@ -118,25 +118,45 @@ body {
 .About-Container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   .About-Info-Container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     .About-Title {
+      font: 100% $font-stack;
       color: #E6873F;
-      font-size: 28px;
+      font-size: 34px;
+      font-weight: bolder;
     };
     .About-Sub-Title {
+      font: 100% $font-stack;
       color: #E6873F;
-      font-size: 22px;
+      font-size: 28px;
+      font-weight: bolder;
     };
     .About-Info {
+      font: 100% $font-stack;
       color: black;
       font-size: 14px;
+      width: 70%;
+      margin-top: 10px;
     };
     .About-btn {
-
+      font: 100% $font-stack;
+      color: black;
+      background: rgba(0,0,0,0);
+      border-color: white;
+      font-weight: bolder;
+      font-size: 28px;
+      transition: 0.5s ease-in;
+      &:hover {
+        color: #E6873F;
+        font-weight: bolder;
+        transition: 0.5s ease-in;
+      }
     }
   };
   .About-Image-Container {
