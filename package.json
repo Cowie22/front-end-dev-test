@@ -30,6 +30,7 @@
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
+    "react-responsive": "^7.0.0",
     "react-reveal": "^1.2.2",
     "react-svg-loader": "^3.0.3",
     "weather-icons-react": "^1.2.0"

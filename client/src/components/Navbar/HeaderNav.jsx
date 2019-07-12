@@ -6,6 +6,7 @@ import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.s
 import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
 import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-white.svg';
 import HeadShake from 'react-reveal/HeadShake';
+import MediaQuery from "react-responsive";
 
 
 const HeaderNav = (props) => {
@@ -34,7 +35,7 @@ const HeaderNav = (props) => {
         <Navbar.Brand
           onClick={() => handleNavigationClicks(homeRef)}
         >
-        <RoosterGrinLogo width={300} height={100} />
+        <RoosterGrinLogo className="Rooster-Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

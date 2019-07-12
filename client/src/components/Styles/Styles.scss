@@ -140,7 +140,6 @@ body {
   margin-top: -20px;
   margin-bottom: -80px;
   height: 100px;
-  width: 100%;
   .fixed-top {
     .navbar {
       .navbar-expand {
@@ -152,15 +151,22 @@ body {
   }
 }
 
+
 .navbar-light {
   .navbar-brand {
     color: black;
     font-weight: bold;
     font-size: 34px;
     font: 100% $font-stack;
-    &:hover {
-      color: 	#BC6732;
-      cursor: pointer;
+    .Rooster-Logo {
+      width: 300px;
+      height: 100px;
+    }
+    @media screen and (max-width: 980px) {
+      .Rooster-Logo {
+        width: 200px;
+        height: 80px;
+      }
     }
   }
 }
@@ -178,6 +184,12 @@ body {
       &:hover {
         color: 	#BC6732;
         cursor: pointer;
+      }
+    }
+    @media screen and (max-width: 980px) {
+      .nav-link {
+        font-size: 18px;
+        text-align: center;
       }
     }
   }
@@ -280,8 +292,10 @@ body {
 
 .About-Container {
   @extend %Left-Page-Container;
+  width: 100%;
   .About-Info-Container {
     @extend %Left-Page-Info-Container;
+    width: 50%;
     .About-Title {
       @extend %Left-Page-Title;
     };
@@ -298,6 +312,34 @@ body {
   .About-Image-Container {
     .About-Image {
 
+    };
+  };
+}
+
+@media screen and (max-width: 980px) {
+  .About-Container {
+    .About-Info-Container {
+      flex-direction: flex-end;
+      padding-top: 64px;
+      .About-Title {
+        font-size: 28px;
+      };
+      .About-Sub-Title {
+        text-align: center;
+        font-size: 22px;
+      };
+      .About-Info {
+        width: 90%;
+      };
+      .About-btn {
+        font-size: 18px;
+      };
+    }
+  }
+  .About-Image-Container {
+    .About-Image {
+      width: 500px;
+      height: 420px;
     };
   };
 }
@@ -323,7 +365,6 @@ body {
     background: rgba(255,255,255,0.4)
   }
 }
-
 // Learn More Skills Styles
 
 .modal-content {
@@ -540,6 +581,17 @@ code {
   }
 }
 
+@media screen and (max-width: 980px) {
+  .Services-Banner-Container {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    .Inner-Service-Banner-Container {
+      margin-bottom: 20px;
+      width: 94%;
+    }
+  }
+}
+
 // Work Styles
 
 .Work-Container {
@@ -564,6 +616,12 @@ code {
   .Carousel-Container {
     width: 50%;
     margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .Work-Container {
+    height: 470px;
   }
 }
 
