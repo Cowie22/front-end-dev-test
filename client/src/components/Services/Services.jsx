@@ -147,7 +147,7 @@ class Services extends React.Component {
           <div className="Inner-Service-Banner-Container">
             <Zoom
               duration={2000}
-              when={pagePosition > 2200}
+              when={pagePosition > 1000}
             >
               <div className="Services-Banner-Info-Container">
                 <h1 className="Services-Banner-Title">INTERESTED ?</h1>
@@ -165,7 +165,7 @@ class Services extends React.Component {
               <Fade
                 up
                 duration={2000}
-                when={pagePosition > 2200}
+                when={pagePosition > 1000}
                 distance={'400px'}
               >
                 <button className="Services-Transition-Button"

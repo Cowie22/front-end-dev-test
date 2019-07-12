@@ -6,7 +6,6 @@ import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.s
 import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
 import RoosterGrinLogo from '../../../public/front-end-dev-test-assets/logo-white.svg';
 import HeadShake from 'react-reveal/HeadShake';
-import MediaQuery from "react-responsive";
 
 
 const HeaderNav = (props) => {
