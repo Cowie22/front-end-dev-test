@@ -140,6 +140,7 @@ body {
   margin-top: -20px;
   margin-bottom: -80px;
   height: 100px;
+  width: 100%;
   .fixed-top {
     .navbar {
       .navbar-expand {
@@ -202,6 +203,7 @@ body {
   height: 750px;
   @extend %Column-Display;
   .Home-Info-Container {
+    width: 100%;
     text-align: center;
     .Welcome {
       color: rgba(0,0,0,0);
