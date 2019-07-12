@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderNav from './Navbar/HeaderNav';
 import HomePage from './Home/HomePage';
 import About from './About/About';
+import Services from './Services/Services';
 import './Styles/Styles.scss'
 
 
@@ -88,7 +89,9 @@ class App extends React.Component {
           />
         </div>
         <div ref={this.servicesRef}>
-
+          <Services
+            {...sharedProps}
+          />
         </div>
       </div>
     )

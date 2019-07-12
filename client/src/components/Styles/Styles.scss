@@ -20,6 +20,102 @@ $font-stack: Helvetica, sans-serif;
   }
 }
 
+%Left-Page-Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+%Left-Page-Info-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+%Left-Page-Title {
+  font: 100% $font-stack;
+  color: #E6873F;
+  font-size: 34px;
+  font-weight: bolder;
+}
+
+%Left-Page-Subtitle {
+  font: 100% $font-stack;
+  color: #E6873F;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+%Left-Page-Info {
+  font: 100% $font-stack;
+  color: black;
+  font-size: 14px;
+  width: 70%;
+  margin-top: 10px;
+}
+
+%Left-Page-Button {
+  font: 100% $font-stack;
+  color: black;
+  background: rgba(0,0,0,0);
+  border-color: white;
+  font-weight: bolder;
+  font-size: 28px;
+  transition: 0.5s ease-in;
+  &:hover {
+    color: #E6873F;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: 0.5s ease-in;
+  }
+}
+
+%Banner-Container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+%Banner-Info-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.4);
+}
+
+%Banner-Title {
+  font: 100% $font-stack;
+  color: #BC6732;
+  font-weight: bolder;
+  font-size: 34px;
+}
+
+%Banner-Info {
+  font: 100% $font-stack;
+  color: rgb(15, 110, 148);
+  font-weight: bold;
+  font-size: 28px;
+}
+
+%Banner-Btn {
+  font: 100% $font-stack;
+  font-weight: bolder;
+  font-size: 28px;
+  background: rgb(15, 110, 148);
+  color: white;
+  &:hover {
+    background: #BC6732;
+    color: white;
+    cursor: pointer;
+  }
+}
+
 body {
   font: 100% $font-stack;
 }
@@ -123,48 +219,20 @@ body {
 // About Us Styles
 
 .About-Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @extend %Left-Page-Container;
   .About-Info-Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    @extend %Left-Page-Info-Container;
     .About-Title {
-      font: 100% $font-stack;
-      color: #E6873F;
-      font-size: 34px;
-      font-weight: bolder;
+      @extend %Left-Page-Title;
     };
     .About-Sub-Title {
-      font: 100% $font-stack;
-      color: #E6873F;
-      font-size: 28px;
-      font-weight: bolder;
+      @extend %Left-Page-Subtitle;
     };
     .About-Info {
-      font: 100% $font-stack;
-      color: black;
-      font-size: 14px;
-      width: 70%;
-      margin-top: 10px;
+      @extend %Left-Page-Info;
     };
     .About-btn {
-      font: 100% $font-stack;
-      color: black;
-      background: rgba(0,0,0,0);
-      border-color: white;
-      font-weight: bolder;
-      font-size: 28px;
-      transition: 0.5s ease-in;
-      &:hover {
-        color: #E6873F;
-        cursor: pointer;
-        font-weight: bolder;
-        transition: 0.5s ease-in;
-      }
+      @extend %Left-Page-Button;
     }
   };
   .About-Image-Container {
@@ -175,42 +243,18 @@ body {
 }
 
 .About-Banner-Container {
+  @extend %Banner-Container;
   background-image: url('../../../public/front-end-dev-test-assets/banner-1.jpg');
-  width: 100%;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   .About-Banner-Info-Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255,255,0.4);
+    @extend %Banner-Info-Container;
     .About-Banner-Title {
-      font: 100% $font-stack;
-      color: #BC6732;
-      font-weight: bolder;
-      font-size: 34px;
+      @extend %Banner-Title;
     };
     .About-Banner-Info {
-      font: 100% $font-stack;
-      color: rgb(15, 110, 148);
-      font-weight: bold;
-      font-size: 28px;
+      @extend %Banner-Info;
     }
     .About-Banner-Btn {
-      font: 100% $font-stack;
-      font-weight: bolder;
-      font-size: 28px;
-      background: rgb(15, 110, 148);
-      color: white;
-      &:hover {
-        background: #BC6732;
-        color: white;
-        cursor: pointer;
-      }
+      @extend %Banner-Btn;
     }
   };
   .About-Transition-Button {
@@ -269,4 +313,101 @@ code {
     letter-spacing: 1px;
     font-weight: bold;
   }
+}
+
+// Services Styling
+
+.Services-Container {
+  @extend %Left-Page-Container;
+  width: 100%;
+  height: 530px;
+  .Services-Info-Container {
+    @extend %Left-Page-Info-Container;
+    width: 50%;
+    .Services-Title {
+      @extend %Left-Page-Title;
+      color: black;
+    };
+    .Services-Sub-Title {
+      @extend %Left-Page-Subtitle;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      #word1 {
+        color: #79244A;
+        margin-right: 8px;
+      };
+      #word2 {
+        color: #7AB5BF;
+        margin-right: 8px;
+      };
+      #word3 {
+        color: #B99468;
+        margin-right: 8px;
+      };
+      #word4 {
+        color: #B94352;
+        margin-right: 8px;
+      };
+      #word5 {
+        color: #9EB467;
+        margin-right: 8px;
+      };
+    };
+    .Services-Info {
+      @extend %Left-Page-Info;
+    };
+    .Services-btn {
+      @extend %Left-Page-Button;
+    }
+  };
+  .Service-Icon-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    width: 50%;
+    height: 100%;
+    .Service-Icon-Inner-Container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      .Icon-Row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        .Service-Icon {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 25%;
+          color: #79244A;
+          font-weight: bold;
+          font-size: 18px;
+          .Service-Icon-Wrapper {
+            border: 1px solid #79244A;
+            border-radius: 50%;
+            padding: 20px;
+          };
+          .Service-Info-Wrapper {
+            font: 100% $font-stack;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-direction: column;
+          }
+        }
+      }
+    };
+  };
 }

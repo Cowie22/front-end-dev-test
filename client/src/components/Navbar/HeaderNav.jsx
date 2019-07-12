@@ -35,7 +35,7 @@ const HeaderNav = (props) => {
             Home
             </Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(aboutRef)}>About Us</Nav.Link>
-            <Nav.Link>Our Services</Nav.Link>
+            <Nav.Link onClick={() => handleNavigationClicks(servicesRef)}>Our Services</Nav.Link>
             <Nav.Link>Our Work</Nav.Link>
             <Nav.Link>Contact</Nav.Link>
           </Nav>
