@@ -1,5 +1,7 @@
 import React from 'react';
-import Zoom from 'react-reveal/Zoom';
+import  { MdMailOutline } from 'react-icons/lib/md';
+import InstagramLogo from '../../../public/front-end-dev-test-assets/instagram.svg';
+import FacebookLogo from '../../../public/front-end-dev-test-assets/facebook.svg';
 import Fade from 'react-reveal/Fade';
 import { Nav } from 'react-bootstrap';
 import  { MdStar } from 'react-icons/lib/md';
@@ -27,6 +29,12 @@ class Work extends React.Component {
         size={40}
         color="#ffb300"
       />
+      const MailIcon =
+      <MdMailOutline
+        name="arrow_right"
+        size={62}
+        color="black"
+       />
     const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition, servicesRef } = this.props;
     return (
       <div>
@@ -57,6 +65,39 @@ class Work extends React.Component {
           </div>
         </div>
         <div className="Contact-Container">
+            Follow/Contact Us:
+          <div className="Contact-Icon-Container">
+            <div className="Contact-Icon">
+              <Nav.Link
+                href="https://www.instagram.com/" target="_blank"
+                onMouseEnter={() => handleHover(10)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 10 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+                >
+                <InstagramLogo width={50} height={50} />
+              </Nav.Link>
+            </div>
+            <div className="Contact-Icon">
+              <Nav.Link
+                href="https://www.facebook.com" target="_blank"
+                onMouseEnter={() => handleHover(11)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 11 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+              >
+              <FacebookLogo width={50} height={50} />
+              </Nav.Link>
+            </div>
+            <div className="Contact-Icon">
+              <Nav.Link
+                href="mailto:info@roostergrin.com" target="_blank"
+                onMouseEnter={() => handleHover(12)}
+                onMouseLeave={() => handleLeave()}
+                style={{background: hovered === 12 ? 'rgba(188, 103, 50, 0.4)' : 'transparent'}}
+              >
+                {MailIcon}
+              </Nav.Link>
+            </div>
+          </div>
 
         </div>
       </div>

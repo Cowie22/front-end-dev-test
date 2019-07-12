@@ -543,7 +543,7 @@ code {
 .Work-Container {
   @extend %Left-Page-Container;
   width: 100%;
-  height: 800px;
+  height: 688px;
   .Work-Info-Container {
     @extend %Left-Page-Info-Container;
     width: 50%;
@@ -562,5 +562,22 @@ code {
   .Carousel-Container {
     width: 50%;
     margin-right: 20px;
+  }
+}
+
+// Contact Footer Styles
+
+.Contact-Container {
+  @extend %Column-Display;
+  background: rgba(0,0,0,0.2);
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #79244A;
+  .Contact-Icon-Container {
+    @extend %Row-Display;
+    .Contact-Icon {
+
+    }
   }
 }
