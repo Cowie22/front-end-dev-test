@@ -3,6 +3,7 @@ import '../Styles/Styles.scss'
 import  { MdArrowDropUp, MdArrowDropDown } from 'react-icons/lib/md';
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
+import Weather from './Weather/Weather';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class HomePage extends React.Component {
         color="	#E6873F"
       />
 
-    const { handleNavigationClicks, aboutRef, hovered, handleHover, handleLeave } = this.props;
+    const { handleNavigationClicks, aboutRef, hovered, handleHover, handleLeave, forecastData } = this.props;
     const { viewable } = this.state;
     return (
       <div className="Home-Page-Container">
@@ -70,6 +71,18 @@ class HomePage extends React.Component {
               onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
             Learn About Us {'  '}{hovered === 4 ? arrowDownIcon : arrowUpIcon}</button>
+          </div>
+        </Fade>
+        <Fade
+          up
+          when={viewable}
+          duration={6000}
+          distance={'500px'}
+        >
+          <div>
+            <Weather
+              forecastData={forecastData}
+            />
           </div>
         </Fade>
       </div>

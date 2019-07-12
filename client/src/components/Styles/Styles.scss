@@ -116,6 +116,20 @@ $font-stack: Helvetica, sans-serif;
   }
 }
 
+%Column-Display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+%Row-Display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 body {
   font: 100% $font-stack;
 }
@@ -186,10 +200,7 @@ body {
   background-image: url('../../../public/front-end-dev-test-assets/hero.jpg');
   width: 100%;
   height: 750px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @extend %Column-Display;
   .Home-Info-Container {
     text-align: center;
     .Welcome {
@@ -215,6 +226,53 @@ body {
     }
   }
 }
+
+// Weather styles
+
+.Weather-Outer-Container {
+  @extend %Row-Display;
+  margin-top: 100px;
+  .Weather-Container {
+    @extend %Column-Display;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    .Weather-Inner-Container {
+      @extend %Column-Display;
+      .Day {
+        font-size: 18px;
+        font-weight: bolder;
+        color: white;
+      };
+      .Weather-Type {
+        font-size: 18px;
+        font-weight: bolder;
+      };
+      .Temp-Container {
+        @extend %Row-Display;
+        font-size: 14px;
+        font-weight: bolder;
+        .Weather-Header {
+          color: white;
+          margin-right: 8px;
+        }
+      };
+      .Humidity-Container {
+        @extend %Row-Display;
+        font-size: 14px;
+        font-weight: bolder;
+        margin-right: 8px;
+        .Weather-Header {
+          color: white;
+          margin-right: 8px;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
 
 // About Us Styles
 
@@ -365,31 +423,22 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
     width: 50%;
     height: 100%;
     .Service-Icon-Inner-Container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @extend %Column-Display;
       width: 100%;
       height: 100%;
       .Icon-Row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @extend %Row-Display;
         width: 100%;
         height: 50%;
         .Service-Icon {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
+          @extend %Column-Display;
           width: 100%;
           height: 25%;
-          color: #79244A;
+          color: #7AB5BF;;
           font-weight: bold;
           font-size: 18px;
           .Service-Icon-Wrapper {
@@ -400,11 +449,8 @@ code {
           .Service-Info-Wrapper {
             font: 100% $font-stack;
             margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-weight: bold;
-            flex-direction: column;
+            @extend %Column-Display;
           }
         }
       }

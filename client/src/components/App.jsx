@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import HeaderNav from './Navbar/HeaderNav';
 import HomePage from './Home/HomePage';
 import About from './About/About';
@@ -10,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      forecastData: [],
       pagePosition: 0,
       hovered: 0,
     }
@@ -22,12 +24,39 @@ class App extends React.Component {
     this.servicesRef = React.createRef();
   }
 
+  componentWillMount() {
+    this.handleGetForecastData();
+  }
+
   componentDidMount() {
     window.addEventListener('scroll', this.handlePagePosition);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handlePagePosition);
+  }
+
+  // Gets Weather Data.  Simple addition I thought would be cool for any website, but more importantly satisfies the
+  // Bonus requirement of utilizing an API and making the page dynamic
+  handleGetForecastData() {
+    axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=37.7749&lon=-122.4194&APPID=cecb63c29bf8faa4dc6c39fe1c560182&units=imperial`)
+    .then(res => {
+      let forecastArray = [];
+      // This conditional ensures that the weather forecast always gets data from the same time of day
+      // The data is given in three hour chunks over 5 days, so the index corresponding to time of day
+      // is always changing
+        for (let i = 0; i < 40; i++) {
+          if (res.data.list[i].dt_txt.includes('18:00:00')) {
+            forecastArray.push(res.data.list[i])
+          }
+        }
+        this.setState({
+          forecastData: forecastArray,
+        })
+      })
+      .catch(err =>{
+        console.log('ERROR', err)
+      })
   }
 
   // Following two functions handle the hovered cases for any icons/buttons so that a boolean
@@ -58,7 +87,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { pagePosition, hovered } = this.state;
+    const { pagePosition, hovered, forecastData } = this.state;
     // Props passed to all App children
     const sharedProps = {
       handleNavigationClicks: this.handleNavigationClicks,
@@ -69,6 +98,9 @@ class App extends React.Component {
       handleLeave: this.handleLeave,
     }
     return (
+      // Weather data can take a little while to load.  This conditional ensures that the
+      // Rest of the page will not crash before the data is retrieved.
+      forecastData.length > 0 ?
       <div>
         <div ref={this.homePageRef}>
           <HeaderNav
@@ -79,6 +111,7 @@ class App extends React.Component {
           />
           <HomePage
             aboutRef={this.aboutRef}
+            forecastData={forecastData}
             {...sharedProps}
           />
         </div>
@@ -93,6 +126,10 @@ class App extends React.Component {
             {...sharedProps}
           />
         </div>
+      </div>
+      :
+      <div>
+        WAITING FOR WEATHER DATA...
       </div>
     )
   }
