@@ -2,6 +2,7 @@ import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import { Nav, ButtonToolbar, DropdownButton, Dropdown } from 'react-bootstrap';
+import ServiceModal from './LearnMore/ServiceModal';
 import HomeExpertise from '../../../public/front-end-dev-test-assets/home-expertise.svg';
 import HomeHygiene from '../../../public/front-end-dev-test-assets/home-hygiene.svg';
 import HomeLab from '../../../public/front-end-dev-test-assets/home-lab.svg';
@@ -13,14 +14,14 @@ class Services extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: 0,
+      display: false,
     }
     this.handleDisplay = this.handleDisplay.bind(this);
   }
   // Controls when to display the modal pop-up
-  handleDisplay(id) {
+  handleDisplay() {
     this.setState({
-      display: id,
+      display: !this.state.display,
     });
   }
   render() {
@@ -79,19 +80,24 @@ class Services extends React.Component {
         <div className="Services-Container">
           <div className="Services-Info-Container">
             <h2 className="Services-Title">Our Services</h2>
-            <h2 className="Services-Sub-Title"><p id="word1">Discover,</p><p id="word2">Design,</p><p id="word3">Implement,</p><p id="word4">Develop,</p><p id="word5">Deliver</p></h2>
+            <h2 className="Services-Sub-Title"><p id="word1">Discover,</p><p id="word2">Design,</p></h2>
+            <h2 className="Services-Sub-Title"><p id="word3">Implement,</p><p id="word4">Develop,</p></h2>
+            <h2 className="Services-Sub-Title"><p id="word5">Deliver</p></h2>
             <p className="Services-Info">
             Every website built by Rooster Grin is customized to the needs of our client through our design process. We focus on using images, video and text that make your business stand out from the competition. Our client see higher conversion rates, more traffic and better search rankings because we leverage our experience and a data-driven approach to create the optimal website for your business.  Every website we build is mobile-friendly and will work on a myriad of devices. In addition, we strategically place call-to-actions through your site to increase conversion rates and generate more business. Finally, our websites are competitively priced to give you the best possible site at a reasonable cost.
             </p>
             <button
               className="Services-btn"
-              onClick={() => this.handleLearnDisplay()}
+              onClick={() => this.handleDisplay()}
               onMouseEnter={() => setTimeout(() => handleHover(7), 300)}
               onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
             {hovered === 7 ? arrowDownIcon : arrowRightIcon } {'  '} Learn More
             </button>
           </div>
+          <ServiceModal
+            show={this.state.display} onHide={this.handleDisplay}
+          />
           <div className="Service-Icon-Container">
             <div className="Service-Icon-Inner-Container" >
               <div className="Icon-Row">

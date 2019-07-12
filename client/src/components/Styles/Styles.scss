@@ -385,12 +385,14 @@ code {
     .Services-Title {
       @extend %Left-Page-Title;
       color: black;
+      margin-bottom: 30px;
     };
     .Services-Sub-Title {
       @extend %Left-Page-Subtitle;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+      margin-top: -10px;
       #word1 {
         color: #79244A;
         margin-right: 8px;
