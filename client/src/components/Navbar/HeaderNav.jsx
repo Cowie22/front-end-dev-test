@@ -15,7 +15,17 @@ const HeaderNav = (props) => {
       size={50}
       color="black"
   />
-  const { pagePosition, handleNavigationClicks, homeRef, aboutRef, hovered, handleHover, handleLeave } = props;
+  const {
+    pagePosition,
+    handleNavigationClicks,
+    homeRef,
+    aboutRef,
+    hovered,
+    handleHover,
+    handleLeave,
+    servicesRef,
+    workRef
+  } = props;
   return (
     // Background color is changed for header nav because it looks better without the background on initial page load
     // But portions can't be seen on the white background below
@@ -36,8 +46,8 @@ const HeaderNav = (props) => {
             </Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(aboutRef)}>About Us</Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(servicesRef)}>Our Services</Nav.Link>
-            <Nav.Link>Our Work</Nav.Link>
-            <Nav.Link>Contact</Nav.Link>
+            <Nav.Link onClick={() => handleNavigationClicks(workRef)}>Our Work</Nav.Link>
+            <Nav.Link onClick={() => handleNavigationClicks(workRef)}>Contact</Nav.Link>
           </Nav>
           <Nav className="ml-auto">
             <HeadShake

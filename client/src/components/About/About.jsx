@@ -95,7 +95,7 @@ class About extends React.Component {
               onMouseEnter={() => setTimeout(() => handleHover(6), 300)}
               onMouseLeave={() => setTimeout(handleLeave, 300)}
             >
-            CHECK OUT OUR SERVICES {'  '}{hovered === 6 ? arrowDownIcon : arrowUpIcon}</button>
+            CHECK OUT OUR WORK {'  '}{hovered === 6 ? arrowDownIcon : arrowUpIcon}</button>
           </Fade>
         </div>
       </div>

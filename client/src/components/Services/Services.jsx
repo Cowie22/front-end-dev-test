@@ -1,5 +1,4 @@
 import React from 'react';
-import AboutImage from '../../../public/front-end-dev-test-assets/img-1.jpg';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import { Nav } from 'react-bootstrap';
@@ -45,7 +44,7 @@ class Services extends React.Component {
         size={40}
         color="	#E6873F"
       />
-    const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition } = this.props;
+    const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition, workRef } = this.props;
     return (
       <div>
         <div className="Services-Container">
@@ -69,7 +68,7 @@ class Services extends React.Component {
               <div className="Icon-Row">
                 <div className="Service-Icon">
                   <div className="Service-Icon-Wrapper">
-                    <HomeExpertise width={80} height={80} />
+                    <HomeExpertise width={70} height={70} />
                   </div>
                   <div className="Service-Info-Wrapper">
                     <p>Web Design</p>
@@ -78,7 +77,7 @@ class Services extends React.Component {
                 </div>
                 <div className="Service-Icon">
                   <div className="Service-Icon-Wrapper">
-                    <HomeHygiene width={80} height={80} />
+                    <HomeHygiene width={70} height={70} />
                   </div>
                   <div className="Service-Info-Wrapper">
                     <p>Search Engine</p>
@@ -89,7 +88,7 @@ class Services extends React.Component {
               <div className="Icon-Row">
                 <div className="Service-Icon">
                   <div className="Service-Icon-Wrapper">
-                    <HomeLab width={80} height={80} />
+                    <HomeLab width={70} height={70} />
                   </div>
                   <div className="Service-Info-Wrapper">
                     <p>Web</p>
@@ -98,7 +97,7 @@ class Services extends React.Component {
                 </div>
                 <div className="Service-Icon">
                   <div className="Service-Icon-Wrapper">
-                    <HomeRetention width={80} height={80} />
+                    <HomeRetention width={70} height={70} />
                   </div>
                   <div className="Service-Info-Wrapper">
                     <p>Health History</p>
@@ -109,36 +108,42 @@ class Services extends React.Component {
             </div>
           </div>
         </div>
-        {/* <div className="About-Banner-Container">
-          <Zoom
-            duration={2000}
-            when={pagePosition > 800}
-          >
-            <div className="About-Banner-Info-Container">
-              <h1 className="About-Banner-Title">INTERESTED ?</h1>
-              <h3 className="About-Banner-Info">Check Out Our Terms And Conditions</h3>
-              <h3 className="About-Banner-Info">And Schedule A Call</h3>
-              <Nav.Link href="https://www.roostergrin.com/terms-and-conditions/" target="_blank">
-                <button className="About-Banner-Btn">
-                HERE
-                </button>
-              </Nav.Link>
-            </div>
-          </Zoom>
-          <Fade
-            up
-            duration={2000}
-            when={pagePosition > 860}
-            distance={'400px'}
-          >
-            <button className="About-Transition-Button"
-              onClick={() => handleNavigationClicks(servicesRef)}
-              onMouseEnter={() => setTimeout(() => handleHover(6), 300)}
-              onMouseLeave={() => setTimeout(handleLeave, 300)}
+        <div className="Services-Banner-Container">
+          <div className="Inner-Service-Banner-Container">
+            <Zoom
+              duration={2000}
+              when={pagePosition > 2200}
             >
-            CHECK OUT OUR SERVICES {'  '}{hovered === 6 ? arrowDownIcon : arrowUpIcon}</button>
-          </Fade>
-        </div> */}
+              <div className="Services-Banner-Info-Container">
+                <h1 className="Services-Banner-Title">INTERESTED ?</h1>
+                <h3 className="Services-Banner-Info">CHECK Out More Services</h3>
+                <h3 className="Services-Banner-Info">And See What We Can Do For You</h3>
+                <Nav.Link href="https://www.roostergrin.com/our-services/web-design-development" target="_blank">
+                  <button className="Services-Banner-Btn">
+                  HERE
+                  </button>
+                </Nav.Link>
+              </div>
+            </Zoom>
+            <div className="Outer-Button-Container">
+            <div>
+              <Fade
+                up
+                duration={2000}
+                when={pagePosition > 2200}
+                distance={'400px'}
+              >
+                <button className="Services-Transition-Button"
+                  onClick={() => handleNavigationClicks(workRef)}
+                  onMouseEnter={() => setTimeout(() => handleHover(8), 300)}
+                  onMouseLeave={() => setTimeout(handleLeave, 300)}
+                >
+                CHECK OUT OUR WORK {'  '}{hovered === 8 ? arrowDownIcon : arrowUpIcon}</button>
+              </Fade>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

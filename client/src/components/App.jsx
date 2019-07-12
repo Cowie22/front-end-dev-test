@@ -4,6 +4,7 @@ import HeaderNav from './Navbar/HeaderNav';
 import HomePage from './Home/HomePage';
 import About from './About/About';
 import Services from './Services/Services';
+import Work from './Work/Work';
 import './Styles/Styles.scss'
 
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     this.homePageRef = React.createRef();
     this.aboutRef = React.createRef();
     this.servicesRef = React.createRef();
+    this.workRef = React.createRef();
   }
 
   componentWillMount() {
@@ -107,6 +109,7 @@ class App extends React.Component {
             homeRef={this.homePageRef}
             aboutRef={this.aboutRef}
             servicesRef={this.servicesRef}
+            workRef={this.workRef}
             {...sharedProps}
           />
           <HomePage
@@ -123,6 +126,12 @@ class App extends React.Component {
         </div>
         <div ref={this.servicesRef}>
           <Services
+            {...sharedProps}
+            workRef={this.workRef}
+          />
+        </div>
+        <div ref={this.workRef}>
+          <Work
             {...sharedProps}
           />
         </div>
