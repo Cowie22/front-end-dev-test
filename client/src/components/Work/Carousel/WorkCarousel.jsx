@@ -19,7 +19,7 @@ class WorkCarousel extends React.Component {
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
-
+  // Controls carousel movement
   handleSelect(selectedIndex, e) {
     this.setState({
       index: selectedIndex,
@@ -30,7 +30,7 @@ class WorkCarousel extends React.Component {
   render() {
     const { index, direction } = this.state;
 
-    // Makes the items for the carousel
+    // Makes the five items for the carousel
     const carouselMaker = (img) => {
       return (
         <Carousel.Item>

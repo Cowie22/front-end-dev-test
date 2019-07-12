@@ -17,7 +17,8 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.handleViewable()
   }
-
+  // Handles initial animation and is controlled on component did mount so it is the first thing the user sees
+  // The title, button and weather all controlled by this animation call
   handleViewable() {
     this.setState({
       viewable: true,
@@ -64,6 +65,7 @@ class HomePage extends React.Component {
           duration={4000}
           distance={'500px'}
         >
+        {/* Handles page navigation to the next section 'About section' */}
           <div className="Home-Button-Container">
             <button className="Home-Button"
               onClick={() => handleNavigationClicks(aboutRef)}

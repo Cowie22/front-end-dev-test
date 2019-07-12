@@ -86,6 +86,7 @@ class Services extends React.Component {
             <p className="Services-Info">
             Every website built by Rooster Grin is customized to the needs of our client through our design process. We focus on using images, video and text that make your business stand out from the competition. Our client see higher conversion rates, more traffic and better search rankings because we leverage our experience and a data-driven approach to create the optimal website for your business.  Every website we build is mobile-friendly and will work on a myriad of devices. In addition, we strategically place call-to-actions through your site to increase conversion rates and generate more business. Finally, our websites are competitively priced to give you the best possible site at a reasonable cost.
             </p>
+            {/* Animates and handles modal display */}
             <button
               className="Services-btn"
               onClick={() => this.handleDisplay()}
@@ -145,6 +146,7 @@ class Services extends React.Component {
         </div>
         <div className="Services-Banner-Container">
           <div className="Inner-Service-Banner-Container">
+          {/* Two animations here are dependent on the page position */}
             <Zoom
               duration={2000}
               when={pagePosition > 1000}
@@ -168,6 +170,7 @@ class Services extends React.Component {
                 when={pagePosition > 1000}
                 distance={'400px'}
               >
+              {/* Uses ref for page navigation */}
                 <button className="Services-Transition-Button"
                   onClick={() => handleNavigationClicks(workRef)}
                   onMouseEnter={() => setTimeout(() => handleHover(8), 300)}

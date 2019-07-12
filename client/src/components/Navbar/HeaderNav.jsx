@@ -14,7 +14,7 @@ const HeaderNav = (props) => {
       name="arrow_right"
       size={50}
       color="black"
-  />
+    />
   const {
     pagePosition,
     handleNavigationClicks,
@@ -44,12 +44,14 @@ const HeaderNav = (props) => {
             >
             Home
             </Nav.Link>
+            {/* Handles smooth page navigation using refs */}
             <Nav.Link onClick={() => handleNavigationClicks(aboutRef)}>About Us</Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(servicesRef)}>Our Services</Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(workRef)}>Our Work</Nav.Link>
             <Nav.Link onClick={() => handleNavigationClicks(workRef)}>Contact</Nav.Link>
           </Nav>
           <Nav className="ml-auto">
+          {/* Animations below dependent on hover and they link to social media/mail */}
             <HeadShake
               duration={2000}
               when={hovered === 1}

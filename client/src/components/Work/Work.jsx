@@ -35,7 +35,7 @@ class Work extends React.Component {
         size={62}
         color="black"
        />
-    const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition, servicesRef } = this.props;
+    const { hovered, handleHover, handleLeave, pagePosition } = this.props;
     return (
       <div>
         <div className="Work-Container">
@@ -61,6 +61,7 @@ class Work extends React.Component {
           </Fade>
           </div>
           <div className="Carousel-Container">
+          {/* Child component which contains the carousel on the bottom of the page */}
             <WorkCarousel />
           </div>
         </div>

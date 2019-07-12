@@ -12,6 +12,7 @@ class Weather extends React.Component {
     }
   }
   render() {
+    // Extracts the write days of the week depending on UTC time from the api
     const { forecastData } = this.props;
     const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
     let calculatedDays = [];
@@ -26,6 +27,7 @@ class Weather extends React.Component {
       let cloudy = day.weather[0].main === 'Clouds';
       // Checks the percent clouds.  If less than 40 % uses sunny weather instead of cloudy
       let dynamicWeatherInfo = cloudy === true && day.clouds.all < 40 ? 'Clear' : day.weather[0].main;
+      // Extracts the proper color depending on the days weather
       const weatherColor = weatherType[dynamicWeatherInfo].color;
       // Weather Icons
       let ClearIcon = <WiDaySunny size={40} color='#000' />
@@ -37,6 +39,7 @@ class Weather extends React.Component {
       let HazeIcon = <WiDayHaze size={40} color='#000' />
       let MistIcon = <WiSleet size={40} color='#000' />
 
+      // Extract the proper weather icon depending on the day's predicted weather
       let iconName = weatherType[dynamicWeatherInfo].icon
       const WeatherIcon = iconName === 'ClearIcon' ? ClearIcon :
       iconName === 'RainIcon' ? RainIcon :

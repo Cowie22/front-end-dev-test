@@ -20,6 +20,7 @@ class App extends React.Component {
     this.handlePagePosition = this.handlePagePosition.bind(this);
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
+    // Refs created for smooth navigation throughout the page
     this.homePageRef = React.createRef();
     this.aboutRef = React.createRef();
     this.servicesRef = React.createRef();

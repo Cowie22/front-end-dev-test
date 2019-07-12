@@ -52,6 +52,7 @@ class About extends React.Component {
             <p className="About-Info">
             Every website built by Rooster Grin is customized to the needs of our client through our design process. We focus on using images, video and text that make your business stand out from the competition. Our client see higher conversion rates, more traffic and better search rankings because we leverage our experience and a data-driven approach to create the optimal website for your business.  Every website we build is mobile-friendly and will work on a myriad of devices. In addition, we strategically place call-to-actions through your site to increase conversion rates and generate more business. Finally, our websites are competitively priced to give you the best possible site at a reasonable cost.
             </p>
+            {/* Button functions used to pop up the modal and animate at the same time */}
             <button
               className="About-btn"
               onClick={() => this.handleLearnDisplay()}
@@ -85,6 +86,7 @@ class About extends React.Component {
             </div>
           </Zoom>
           <Fade
+          // Animation dependent upon where the user is currently at on the screen
             up
             duration={2000}
             when={pagePosition > 860}
