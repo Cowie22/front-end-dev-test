@@ -15,19 +15,19 @@ class ServiceModal extends React.Component  {
   render() {
     const TabletIcon =
       <MdTablet
-        name="desktop_mac"
+        name="tablet"
         size={40}
         color="#9EB467"
       />
     const MailIcon =
       <MdContactMail
-        name="desktop_mac"
+        name="mail"
         size={40}
         color="#9EB467"
     />
     const LaptopIcon =
       <MdLaptopMac
-        name="desktop_mac"
+        name="laptop"
         size={40}
         color="#9EB467"
     />

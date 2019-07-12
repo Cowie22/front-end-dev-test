@@ -549,12 +549,18 @@ code {
     width: 50%;
     .Work-Title {
       @extend %Left-Page-Title;
+      color: #000;
     };
     .Work-Sub-Title {
       @extend %Left-Page-Subtitle;
+      color: #000;
     };
-    .Work-btn {
-      @extend %Left-Page-Button;
+    .Star-Container {
+      @extend %Row-Display;
     }
   };
+  .Carousel-Container {
+    width: 50%;
+    margin-right: 20px;
+  }
 }
