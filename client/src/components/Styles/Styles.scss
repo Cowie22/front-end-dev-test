@@ -442,21 +442,63 @@ code {
           color: #7AB5BF;;
           font-weight: bold;
           font-size: 18px;
-          .Service-Icon-Wrapper {
-            border: 1px solid #79244A;
-            border-radius: 50%;
-            padding: 20px;
-          };
-          .Service-Info-Wrapper {
-            font: 100% $font-stack;
-            margin-top: 10px;
-            font-weight: bold;
-            @extend %Column-Display;
+          .Inner-Icon-Container {
+            &:hover {
+              color: #79244A;
+            }
+            .Service-Icon-Wrapper {
+              border: 1px solid #79244A;
+              border-radius: 50%;
+              padding: 20px;
+            };
+            .Service-Info-Wrapper {
+              font: 100% $font-stack;
+              margin-top: 10px;
+              font-weight: bold;
+              @extend %Column-Display;
+            }
+
           }
         }
       }
     };
   };
+}
+
+// More Styles for icons now that dropdown has been added
+
+%invisible {
+  background: rgba(0,0,0,0);
+  color: (0,0,0,0);
+  border: hidden;
+  height: 88px;
+  width: 88px;
+  margin-right: 14px;
+}
+
+.dropleft {
+  @extend %invisible;
+    &:hover {
+      @extend %invisible;
+    }
+    .dropdown-toggle {
+      @extend %invisible;
+      &:hover {
+        @extend %invisible;
+      }
+      .btn {
+        @extend %invisible;
+        .btn-secondary {
+          @extend %invisible;
+      }
+    }
+  }
+}
+
+.dropdown-item {
+  color: #7AB5BF;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .Services-Banner-Container {

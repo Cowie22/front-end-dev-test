@@ -1,7 +1,7 @@
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import { Nav } from 'react-bootstrap';
+import { Nav, ButtonToolbar, DropdownButton, Dropdown } from 'react-bootstrap';
 import HomeExpertise from '../../../public/front-end-dev-test-assets/home-expertise.svg';
 import HomeHygiene from '../../../public/front-end-dev-test-assets/home-hygiene.svg';
 import HomeLab from '../../../public/front-end-dev-test-assets/home-lab.svg';
@@ -45,6 +45,35 @@ class Services extends React.Component {
         color="	#E6873F"
       />
     const { hovered, handleHover, handleLeave, handleNavigationClicks, pagePosition, workRef } = this.props;
+    // Creates the four drop downs below, title is the given svg icons for this assignment.
+    // Pretty Large refactor and has many arguments, but greatly reduces code as this is shared
+    // Amongst all icons
+    const dropDownMaker = (icon, title, subtitle, item1, item2, item3, item4) => {
+      return (
+        <div className="Service-Icon">
+          <div className="Inner-Icon-Container">
+            <div className="Service-Icon-Wrapper">
+            <DropdownButton
+              drop='left'
+              variant="secondary"
+              title={icon}
+            >
+              <Dropdown.Item eventKey="4">Features</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="1">{item1}</Dropdown.Item>
+              <Dropdown.Item eventKey="2">{item2}</Dropdown.Item>
+              <Dropdown.Item eventKey="3">{item3}</Dropdown.Item>
+              <Dropdown.Item eventKey="4">{item4}</Dropdown.Item>
+            </DropdownButton>
+            </div>
+            <div className="Service-Info-Wrapper">
+              <p>{title}</p>
+              <p>{subtitle}</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
         <div className="Services-Container">
@@ -66,44 +95,44 @@ class Services extends React.Component {
           <div className="Service-Icon-Container">
             <div className="Service-Icon-Inner-Container" >
               <div className="Icon-Row">
-                <div className="Service-Icon">
-                  <div className="Service-Icon-Wrapper">
-                    <HomeExpertise width={70} height={70} />
-                  </div>
-                  <div className="Service-Info-Wrapper">
-                    <p>Web Design</p>
-                    <p>And Development</p>
-                  </div>
-                </div>
-                <div className="Service-Icon">
-                  <div className="Service-Icon-Wrapper">
-                    <HomeHygiene width={70} height={70} />
-                  </div>
-                  <div className="Service-Info-Wrapper">
-                    <p>Search Engine</p>
-                    <p>Optimization</p>
-                  </div>
-                </div>
+                {dropDownMaker(
+                <HomeExpertise width={70} height={70} />,
+                'Web Design',
+                'And Development',
+                'Sitemap',
+                'Revisions',
+                'Action',
+                'Coding'
+                )}
+                {dropDownMaker(
+                <HomeHygiene width={70} height={70} />,
+                'Search Design',
+                'And Optimization',
+                'Get',
+                'To The',
+                'Top Of',
+                'Google'
+                )}
               </div>
               <div className="Icon-Row">
-                <div className="Service-Icon">
-                  <div className="Service-Icon-Wrapper">
-                    <HomeLab width={70} height={70} />
-                  </div>
-                  <div className="Service-Info-Wrapper">
-                    <p>Web</p>
-                    <p>Hosting</p>
-                  </div>
-                </div>
-                <div className="Service-Icon">
-                  <div className="Service-Icon-Wrapper">
-                    <HomeRetention width={70} height={70} />
-                  </div>
-                  <div className="Service-Info-Wrapper">
-                    <p>Health History</p>
-                    <p>Forms</p>
-                  </div>
-                </div>
+                {dropDownMaker(
+                <HomeLab width={70} height={70} />,
+                'Web',
+                'Hosting',
+                'Rooster Grin',
+                'Hosts and',
+                'Maintains',
+                'Websites'
+                )}
+                {dropDownMaker(
+                <HomeRetention width={70} height={70} />,
+                'Health History',
+                'Forms',
+                'Digital (Paperless)',
+                'Forms with',
+                'Embedded',
+                'Signatures'
+                )}
               </div>
             </div>
           </div>
